@@ -3,7 +3,7 @@ name: Notify Discord on Push
 on:
   push:
     branches:
-      - main  # Change to your default branch
+      - main
 
 jobs:
   notify-discord:
@@ -18,10 +18,43 @@ jobs:
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
           COMMIT_URL: ${{ github.event.head_commit.url }}
         run: |
-          # Prepare the content payload with markdown formatting
+          # Prepare the content payload with an embed
           PAYLOAD=$(jq -n \
-            --arg content "**New commit pushed to \`${REPO_NAME}\` by **${COMMIT_AUTHOR}**\n**Message:** $COMMIT_MESSAGE\n[View Commit]($COMMIT_URL)" \
-            '{content: $content}')
+            --arg title "New Commit Pushed" \
+            --arg author "$COMMIT_AUTHOR" \
+            --arg repo "$REPO_NAME" \
+            --arg message "$COMMIT_MESSAGE" \
+            --arg url "$COMMIT_URL" \
+            '{
+              embeds: [
+                {
+                  title: $title,
+                  color: 3066993,  # A nice teal color
+                  fields: [
+                    {
+                      name: "Author",
+                      value: $author,
+                      inline: true
+                    },
+                    {
+                      name: "Repository",
+                      value: $repo,
+                      inline: true
+                    },
+                    {
+                      name: "Message",
+                      value: $message,
+                      inline: false
+                    }
+                  ],
+                  footer: {
+                    text: "View Commit",
+                    icon_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                  },
+                  url: $url
+                }
+              ]
+            }')
 
           # Send the POST request to Discord webhook
           if ! curl -H "Content-Type: application/json" -d "$PAYLOAD" "$WEBHOOK_URL"; then
