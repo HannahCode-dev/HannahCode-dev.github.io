@@ -1,3 +1,5 @@
+const youTubeIdRegex = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+
 document.addEventListener('DOMContentLoaded', () => {
   const videos = document.querySelectorAll('video');
   videos.forEach(video => {
@@ -17,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function extractYouTubeVideoId(url) {
   if (!url) return null;
-  const regExp = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
+  const match = url.match(youTubeIdRegex);
   return (match && match[1].length === 11) ? match[1] : null;
 }

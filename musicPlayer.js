@@ -163,9 +163,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  let saveTimeout = null;
+  let cachedState = null;
+
+  function throttledSavePlayerState() {
+    if (saveTimeout) return;
+    saveTimeout = setTimeout(() => {
+      savePlayerState();
+      saveTimeout = null;
+    }, 1000);
+  }
+
+  function loadPlayerState() {
+    if (cachedState) return cachedState;
+    const stateJSON = localStorage.getItem('musicPlayerState');
+    if (stateJSON) {
+      try {
+        cachedState = JSON.parse(stateJSON);
+        if (cachedState.currentTrack !== undefined && cachedState.currentTrack >= 0 && cachedState.currentTrack < playlist.length) {
+          currentTrack = cachedState.currentTrack;
+        }
+        if (typeof cachedState.isPlaying === 'boolean') {
+          isPlaying = cachedState.isPlaying;
+        }
+        if (typeof cachedState.volume === 'number' && cachedState.volume >= 0 && cachedState.volume <= 1) {
+          audioPlayer.volume = cachedState.volume;
+          volumeSlider.value = cachedState.volume;
+        }
+        return cachedState;
+      } catch (e) {
+        console.error('Failed to parse music player state from localStorage', e);
+      }
+    }
+    return null;
+  }
+
   audioPlayer.addEventListener('timeupdate', () => {
     updateTimeRemaining();
-    savePlayerState();
+    throttledSavePlayerState();
   });
 
   playPauseBtn.addEventListener('click', playPause);

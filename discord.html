@@ -1,164 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Join My Discord</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discord</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-      background: linear-gradient(135deg, #1e262d, #111827);
-      color: #cbd5e1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      flex-shrink: 0;
-    }
-    main {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 1rem 0.5rem;
-      text-align: center;
-      gap: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .discord-button {
-      background-color: #ff4d4d;
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 9999px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(255, 77, 77, 0.6);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .discord-button:hover {
-      background-color: #e04343;
-      box-shadow: 0 6px 20px rgba(224, 67, 67, 0.8);
-    }
-    .discord-icon {
-      font-size: 1.25rem;
-    }
-    h1 {
-      font-size: 1.5rem;
-      color: #ff4d4d;
-      margin-bottom: 0.25rem;
-    }
-    p.description {
-      font-size: 0.875rem;
-      color: #94a3b8;
-      line-height: 1.4;
-      margin-bottom: 1rem;
-    }
-    .highlights {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-    }
-    .highlight {
-      background-color: #2a323a;
-      border-radius: 0.5rem;
-      padding: 0.5rem 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      text-align: left;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: transform 0.3s ease;
-    }
-    .highlight:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(255, 77, 77, 0.6);
-    }
-    .highlight-icon {
-      font-size: 1.25rem;
-      color: #ff4d4d;
-      flex-shrink: 0;
-    }
-    .highlight-text {
-      flex-grow: 1;
-    }
-    .highlight-text h3 {
-      margin: 0 0 0.25rem 0;
-      font-weight: 600;
-      color: #ff4d4d;
-    }
-    .highlight-text p {
-      margin: 0;
-      color: #cbd5e1;
-    }
-  </style>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="flex justify-end p-[0.5rem] space-x-[0.25rem] tracking-widest" style="font-weight: 300;">
-    <a href="index.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">Home</a>
-    <a href="tool.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">Tools</a>
-    <a href="discord.html" class="px-3 py-1 bg-[#ff4d4d] rounded-md text-white text-xs transition-colors duration-300">Discord</a>
-    <a href="videos.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">Videos</a>
+<body class="bg-[#1e262d] text-[#cbd5e1] min-h-screen">
+  <header class="flex justify-end p-[0.5rem] space-x-[0.25rem] tracking-widest">
+    <a
+      href="index.html"
+      class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white"
+      >Home</a
+    >
+    <a
+      href="tool.html"
+      class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white"
+      >Tools</a
+    >
+    <a
+      href="discord.html"
+      class="px-3 py-1 bg-[#ff4d4d] rounded-md text-white text-xs transition-colors duration-300"
+      >Discord</a
+    >
+    <a
+      href="videos.html"
+      class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white"
+      >Videos</a
+    >
   </header>
-  <main>
-    <h1 style="font-size: 1.5rem;">Welcome to My Discord</h1>
-    <a href="https://discord.gg/pSz7gDSN7M" target="_blank" rel="noopener noreferrer" class="discord-button" aria-label="Join My Discord Server">
-      <i class="fab fa-discord discord-icon"></i>
-      Join My Discord Server
-    </a>
-    <p class="description">
-      Join a friendly and active community where you can chat and share your projects.
-    </p>
-    <div class="highlights" aria-label="Discord server highlights">
-      <div class="highlight" tabindex="0">
-        <i class="fas fa-users highlight-icon" aria-hidden="true"></i>
-        <div class="highlight-text">
-          <h3>Active Community</h3>
-          <p>Engage with members who share your interests.</p>
+  <main
+    class="max-w-7xl mx-auto px-[0.5rem] pt-[2rem] grid grid-cols-1 md:grid-cols-[minmax(0,17.5rem)_1fr] gap-[0.5rem] gap-y-[5rem] gap-x-[1.5rem]"
+  >
+    <section class="space-y-[0.5rem]">
+      <article
+        class="bg-[#2a323a] rounded-md p-[0.75rem] max-w-[17.5rem] mx-auto relative"
+      >
+        <div
+          class="absolute -top-8 left-1/2 -translate-x-1/2 w-22 h-22 rounded-full border-2 border-[#ff4d4d] bg-[#1e262d] flex items-center justify-center"
+        >
+          <img
+            alt="Profile image of a green anime girl with long hair and red circle border"
+            class="rounded-full w-20 h-20"
+            src="https://storage.googleapis.com/a1aa/image/fa30a661-ed71-4cfc-9c1a-41f248e475a7.jpg"
+          />
+        </div>
+        <div class="pt-14 text-center">
+          <h2 class="font-semibold text-[#cbd5e1] text-[1rem] truncate">Admin_fire</h2>
+          <p class="text-[#64748b] font-light text-[0.75rem] truncate">HannahCode</p>
+          <ul class="mt-[0.5rem] space-y-[0.25rem] font-light text-[0.75rem]">
+            <li class="flex items-center space-x-[0.25rem] text-[#ff4d4d]">
+              <i class="fas fa-fire icon-small"></i>
+              <span>Based in:</span>
+              <span class="ml-[0.25rem] font-normal text-[#ff4d4d] truncate">Belgium</span>
+            </li>
+            <li class="flex items-center space-x-[0.25rem] text-[#64748b]">
+              <i class="fab fa-github" style="font-size: 0.6rem;"></i>
+              <span>GitHub:</span>
+              <a
+                class="ml-[0.25rem] font-normal text-[#ff4d4d] hover:underline truncate link-small"
+                href="https://github.com/HannahCode-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Admin_fire</a
+              >
+            </li>
+            <li class="flex items-center space-x-[0.25rem] text-[#64748b]">
+              <i class="fab fa-discord" style="font-size: 0.6rem;"></i>
+              <span>Discord:</span>
+              <a
+                class="ml-[0.25rem] font-normal text-[#ff4d4d] hover:underline truncate link-small"
+                href="https://guns.lol/admin_fire"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Admin_fire</a
+              >
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article
+        class="bg-[#2a323a] rounded-md p-[0.75rem] max-w-[17.5rem] mx-auto font-light text-[0.75rem]"
+      >
+        <p class="flex items-center space-x-[0.25rem] mb-[0.25rem] truncate">
+          <i class="fab fa-discord text-[#64748b]" style="font-size: 0.6rem"></i>
+          <span>Discord:</span>
+          <a
+            class="text-[#ff4d4d] hover:underline truncate"
+            href="https://discord.gg/pSz7gDSN7M"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="font-size: 0.75rem"
+            >Admin_fire Group</a
+          >
+        </p>
+        <p class="truncate" style="font-size: 0.75rem">
+          Minecraft:
+          <a
+            class="text-[#ff4d4d] hover:underline truncate"
+            href="https://namemc.com/profile/HannahCode"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="font-size: 0.75rem"
+            >HannahCode</a
+          >
+        </p>
+        <p class="truncate" style="font-size: 0.75rem">
+          <i class="fab fa-youtube text-[#64748b]" style="font-size: 0.6rem"></i>
+          Youtube:
+          <a
+            class="text-[#ff4d4d] hover:underline truncate"
+            href="https://youtube.com/@Admin_fire-HannahCode"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="font-size: 0.75rem"
+            >Admin_fire</a
+          >
+        </p>
+      </article>
+      <section
+        class="bg-[#2a323a] rounded-md p-[0.75rem] max-w-[17.5rem] mx-auto my-[2rem]"
+      >
+        <iframe
+          src="musicPlayerFrame.html?page=index"
+          class="iframe-music-player"
+        ></iframe>
+      </section>
+    </section>
+    <section class="bg-[#1e262d]">
+      <h3
+        class="font-semibold mb-[0.5rem] truncate"
+        style="font-size: 0.8rem"
+      >
+        Welcome to My Discord
+      </h3>
+      <div class="discord-main-container rounded-md p-[0.75rem] shadow-none">
+        <a
+          href="https://discord.gg/pSz7gDSN7M"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="discord-button flex items-center justify-center bg-[#5865f2] hover:bg-[#4752c4] transition-colors duration-300 rounded-md px-4 py-2 text-white font-semibold shadow-md"
+          aria-label="Join My Discord Server"
+        >
+          <i class="fab fa-discord discord-icon mr-2 text-xl"></i>
+          Join My Discord Server
+        </a>
+        <p class="description text-white mt-4 mb-6">
+          Join a friendly and active community where you can chat and share your
+          projects.
+        </p>
+        <div class="highlights" aria-label="Discord server highlights">
+          <div class="highlight" tabindex="0">
+            <i
+              class="fas fa-users highlight-icon"
+              aria-hidden="true"
+            ></i>
+            <div class="highlight-text">
+              <h3>Active Community</h3>
+              <p>Engage with members who share your interests.</p>
+            </div>
+          </div>
+          <div class="highlight" tabindex="0">
+            <i
+              class="fas fa-code highlight-icon"
+              aria-hidden="true"
+            ></i>
+            <div class="highlight-text">
+              <h3>Project Sharing</h3>
+              <p>Showcase your work and get feedback.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="highlight" tabindex="0">
-        <i class="fas fa-code highlight-icon" aria-hidden="true"></i>
-        <div class="highlight-text">
-          <h3>Project Sharing</h3>
-          <p>Showcase your work and get feedback.</p>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
-  <footer class="bg-[#2a323a] p-0 mt-auto flex items-center w-full fixed bottom-0 left-0 rounded-t-md z-50" style="height: 100px; min-height: 100px;">
-    <iframe id="musicPlayerIframe" src="musicPlayerFrame.html?page=discord" style="width: 100%; height: 100px; border: none; border-radius: 0; box-shadow: none;"></iframe>
-  </footer>
-  <script>
-    window.addEventListener('message', (event) => {
-      console.log('Received message from iframe:', event.data);
-      if (event.data && event.data.type === 'setHeight') {
-        const iframe = document.getElementById('musicPlayerIframe');
-        if (iframe && event.data.height) {
-          let newHeight = event.data.height;
-          if (newHeight < 100) {
-            newHeight = 100;
-          }
-          iframe.style.height = newHeight + 'px';
-          const footer = iframe.parentElement;
-          if (footer) {
-            footer.style.height = newHeight + 'px';
-          }
-          console.log('Set iframe and footer height to:', newHeight);
-        }
-      }
-    });
-  </script>
 </body>
 </html>

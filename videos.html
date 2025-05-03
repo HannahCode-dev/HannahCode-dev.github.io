@@ -8,43 +8,30 @@
   <script src="https://cdn.tailwindcss.com">
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-    body {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-    }
-    html {
-      font-size: calc(10.4px + 0.65vw);
-    }
-    @media (min-width: 1280px) {
-      html {
-        font-size: 18px;
-      }
-    }
-    @media (max-width: 320px) {
-      html {
-        font-size: 10.4px;
-      }
-    }
-    .loop-active {
-      background-color: #3b82f6 !important;
-    }
-  </style>
- </head>
- <body class="bg-[#1e262d] text-[#cbd5e1] min-h-screen">
-  <header class="flex justify-end p-[0.5rem] space-x-[0.25rem] tracking-widest" style="font-weight: 300;">
-   <a href="index.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
-    Home
-   </a>
-   <a href="tool.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
-    Tools
-   </a>
-   <a href="discord.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
-    Discord
-   </a>
-   <a href="videos.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
-    Videos
-   </a>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#1e262d] text-[#cbd5e1] min-h-screen">
+  <header class="flex justify-end p-[0.5rem] space-x-[0.25rem] tracking-widest">
+    <a
+      href="index.html"
+      class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white"
+      >Home</a
+    >
+    <a
+      href="tool.html"
+      class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white"
+      >Tools</a
+    >
+    <a
+      href="discord.html"
+      class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white"
+      >Discord</a
+    >
+    <a
+      href="videos.html"
+      class="px-3 py-1 bg-[#ff4d4d] rounded-md text-white text-xs transition-colors duration-300"
+      >Videos</a
+    >
   </header>
 <main class="max-w-7xl mx-auto px-[0.5rem] pt-[2rem] grid grid-cols-1 md:grid-cols-[minmax(0,17.5rem)_1fr] gap-[0.5rem] gap-y-[5rem] gap-x-[1.5rem]">
    <section class="space-y-[0.5rem]">
@@ -61,7 +48,7 @@
       </p>
       <ul class="mt-[0.5rem] space-y-[0.25rem] font-light text-[0.75rem]">
        <li class="flex items-center space-x-[0.25rem] text-[#ff4d4d]">
-        <i class="fas fa-fire" style="font-size: 0.6rem;">
+<i class="fas fa-fire icon-small">
         </i>
         <span>
          Based in:
@@ -76,7 +63,7 @@
         <span>
          GitHub:
         </span>
-        <a class="ml-[0.25rem] font-normal text-[#ff4d4d] hover:underline truncate" href="https://github.com/HannahCode-dev" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem;">
+<a class="ml-[0.25rem] font-normal text-[#ff4d4d] hover:underline truncate link-small" href="https://github.com/HannahCode-dev" target="_blank" rel="noopener noreferrer">
          Admin_fire
         </a>
        </li>
@@ -86,7 +73,7 @@
         <span>
          Discord:
         </span>
-        <a class="ml-[0.25rem] font-normal text-[#ff4d4d] hover:underline truncate" href="https://guns.lol/admin_fire" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem;">
+<a class="ml-[0.25rem] font-normal text-[#ff4d4d] hover:underline truncate link-small" href="https://guns.lol/admin_fire" target="_blank" rel="noopener noreferrer">
          Admin_fire
         </a>
        </li>
@@ -119,11 +106,11 @@
      </p>
     </article>
     <section class="bg-[#2a323a] rounded-md p-[0.75rem] max-w-[17.5rem] mx-auto my-[2rem]">
-      <iframe src="musicPlayerFrame.html?page=videos" style="width: 100%; height: 160px; border: none; border-radius: 8px;"></iframe>
+<iframe src="musicPlayerFrame.html?page=videos" class="iframe-music-player"></iframe>
     </section>
    </section>
    <section>
-    <h3 class="font-semibold mb-[0.5rem] truncate" style="font-size: 0.8rem;">
+<h3 class="font-semibold mb-[0.5rem] truncate small-heading">
      Videos
     </h3>
     <div class="grid grid-cols-2 gap-[0.5rem] max-w-4xl">

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -180,9 +179,14 @@
       const height = document.documentElement.scrollHeight - 40;
       window.parent.postMessage({ type: 'setHeight', height: height }, '*');
     });
+
+    let resizeTimeout = null;
     window.addEventListener('resize', () => {
-      const height = document.documentElement.scrollHeight - 40;
-      window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const height = document.documentElement.scrollHeight - 40;
+        window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+      }, 200);
     });
   </script>
   <script src="musicPlayer.js"></script>
