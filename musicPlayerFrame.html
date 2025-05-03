@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Music Player</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #1e262d;
+      color: #cbd5e1;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    #musicPlayerContainer {
+      background-color: #2a323a;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    #songTitle {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    #timeRemaining {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      color: #ff4d4d;
+      text-align: center;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    audio {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      gap: 0.25rem;
+      transition: all 0.3s ease;
+    }
+    button {
+      background-color: #ff4d4d;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      flex: 1 1 45%;
+      min-width: 4rem;
+      user-select: none;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    button.loop-active {
+      background-color: #3b82f6 !important;
+    }
+    input[type="range"] {
+      width: 100%;
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    body.discord-variant {
+      overflow: hidden;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    body.discord-variant #musicPlayerContainer {
+      padding: 0.5rem;
+      border-radius: 8px;
+      width: 100%;
+      max-width: none;
+    }
+    body.discord-variant #songTitle {
+      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: center;
+    }
+    body.discord-variant #timeRemaining {
+      margin-bottom: 0.3rem;
+      font-size: 0.75rem;
+      color: #ff4d4d;
+      text-align: center;
+    }
+    body.discord-variant audio {
+      margin-bottom: 0.3rem;
+      width: 100%;
+      height: 28px;
+      border-radius: 4px;
+    }
+    body.discord-variant .controls {
+      gap: 0.15rem;
+      justify-content: center;
+      align-items: center;
+    }
+    body.discord-variant button {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.85rem;
+      min-width: auto;
+      flex: 0 0 auto;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      order: 0;
+    }
+    body.discord-variant #volumeSlider {
+      width: 60px;
+      height: 20px;
+      padding: 0.15rem 0.3rem;
+      font-size: 0.65rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      order: 99;
+      flex: 0 0 auto;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div id="musicPlayerContainer">
+    <div id="songTitle"></div>
+    <div id="timeRemaining"></div>
+    <audio id="audioPlayer" class="w-full rounded-md"></audio>
+    <div class="controls">
+      <button id="prevBtn">Prev</button>
+      <button id="playPauseBtn">Play</button>
+      <button id="nextBtn">Next</button>
+      <button id="loopBtn">Loop</button>
+      <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="1" title="Volume"/>
+    </div>
+  </div>
+  <script>
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    if (getQueryParam('page') === 'discord') {
+      document.body.classList.add('discord-variant');
+    }
+
+    function sendHeight() {
+      const height = document.documentElement.scrollHeight;
+      window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+    }
+
+    window.addEventListener('load', () => {
+      const height = document.documentElement.scrollHeight - 40;
+      window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+    });
+    window.addEventListener('resize', () => {
+      const height = document.documentElement.scrollHeight - 40;
+      window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+    });
+  </script>
+  <script src="musicPlayer.js"></script>
+</body>
+</html>

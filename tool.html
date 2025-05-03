@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tools</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      background: linear-gradient(135deg, #1e262d, #111827);
+      color: #cbd5e1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 130%;
+    }
+    header {
+      flex-shrink: 0;
+    }
+    main {
+      flex-grow: 1;
+      max-width: 100%;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.75rem;
+      color: #ff4d4d;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+    .tools-list {
+      display: grid;
+      grid-template-columns: repeat(5, 280px);
+      gap: 1rem;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding-bottom: 1rem;
+    }
+    .tool-card {
+      background-color: #2a323a;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .tool-card h3 {
+      color: #ff4d4d;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .tool-card p {
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      margin: 0;
+    }
+    footer {
+      background-color: #2a323a;
+      padding: 0;
+      margin-top: auto;
+      height: 100px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      border-radius: 0 0 0.5rem 0.5rem;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body>
+  <header class="flex justify-end p-[0.5rem] space-x-[0.25rem] tracking-widest" style="font-weight: 300;">
+    <a href="index.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">Home</a>
+    <a href="tool.html" class="px-3 py-1 bg-[#ff4d4d] rounded-md text-white text-xs transition-colors duration-300">Tools</a>
+    <a href="discord.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">Discord</a>
+    <a href="videos.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">Videos</a>
+  </header>
+  <main class="max-w-full mx-auto px-[0.5rem] pt-[2rem]">
+   <section class="space-y-[0.5rem]">
+   <section>
+    <h1>Tools</h1>
+    <p>Explore a collection of useful tools to enhance your projects and workflow.</p>
+    <hr style="border: 1px solid #ff4d4d; margin: 1rem 0;"/>
+    <div class="tools-list">
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 1</h3>
+        <p>Description of Tool 1.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 2</h3>
+        <p>Description of Tool 2.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 3</h3>
+        <p>Description of Tool 3.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 4</h3>
+        <p>Description of Tool 4.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 5</h3>
+        <p>Description of Tool 5.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 6</h3>
+        <p>Description of Tool 6.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 7</h3>
+        <p>Description of Tool 7.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 8</h3>
+        <p>Description of Tool 8.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 9</h3>
+        <p>Description of Tool 9.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 10</h3>
+        <p>Description of Tool 10.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 11</h3>
+        <p>Description of Tool 11.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 12</h3>
+        <p>Description of Tool 12.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 13</h3>
+        <p>Description of Tool 13.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 14</h3>
+        <p>Description of Tool 14.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 15</h3>
+        <p>Description of Tool 15.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 16</h3>
+        <p>Description of Tool 16.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 17</h3>
+        <p>Description of Tool 17.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 18</h3>
+        <p>Description of Tool 18.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 19</h3>
+        <p>Description of Tool 19.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 20</h3>
+        <p>Description of Tool 20.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 21</h3>
+        <p>Description of Tool 21.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 22</h3>
+        <p>Description of Tool 22.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 23</h3>
+        <p>Description of Tool 23.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 24</h3>
+        <p>Description of Tool 24.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 25</h3>
+        <p>Description of Tool 25.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 26</h3>
+        <p>Description of Tool 26.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 27</h3>
+        <p>Description of Tool 27.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 28</h3>
+        <p>Description of Tool 28.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 29</h3>
+        <p>Description of Tool 29.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 30</h3>
+        <p>Description of Tool 30.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 31</h3>
+        <p>Description of Tool 31.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 32</h3>
+        <p>Description of Tool 32.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 33</h3>
+        <p>Description of Tool 33.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 34</h3>
+        <p>Description of Tool 34.</p>
+      </div>
+      <div class="tool-card" tabindex="0">
+        <h3>Tool 35</h3>
+        <p>Description of Tool 35.</p>
+      </div>
+    </div>
+   </section>
+  </main>
+  <style>
+    .tool-card-overlay {
+      position: fixed;
+      background-color: #2a323a;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: 0 8px 30px rgba(255, 77, 77, 0.8);
+      z-index: 10000;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toolCards = document.querySelectorAll('.tool-card');
+
+      toolCards.forEach(card => {
+        let overlay = null;
+        let removeTimeout = null;
+
+        card.addEventListener('mouseenter', (e) => {
+          if (overlay) return;
+          if (removeTimeout) {
+            clearTimeout(removeTimeout);
+            removeTimeout = null;
+          }
+
+          const rect = card.getBoundingClientRect();
+
+          overlay = card.cloneNode(true);
+          overlay.classList.add('tool-card-overlay');
+          overlay.style.top = rect.top + 'px';
+          overlay.style.left = rect.left + 'px';
+          overlay.style.width = rect.width + 'px';
+          overlay.style.height = rect.height + 'px';
+
+          document.body.appendChild(overlay);
+
+          requestAnimationFrame(() => {
+            overlay.style.transform = 'scale(1.1)';
+          });
+
+          card.style.pointerEvents = 'none';
+
+          overlay.addEventListener('mouseleave', () => {
+            removeTimeout = setTimeout(() => {
+              if (overlay) {
+                overlay.style.transform = 'scale(1)';
+                overlay.remove();
+                overlay = null;
+                card.style.pointerEvents = 'auto';
+              }
+            }, 100);
+          });
+
+          overlay.addEventListener('mouseenter', () => {
+            if (removeTimeout) {
+              clearTimeout(removeTimeout);
+              removeTimeout = null;
+            }
+          });
+        });
+
+        card.addEventListener('mouseleave', (e) => {
+          if (overlay) {
+            const related = e.relatedTarget;
+            if (!overlay.contains(related)) {
+              removeTimeout = setTimeout(() => {
+                if (overlay) {
+                  overlay.style.transform = 'scale(1)';
+                  overlay.remove();
+                  overlay = null;
+                  card.style.pointerEvents = 'auto';
+                }
+              }, 100);
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

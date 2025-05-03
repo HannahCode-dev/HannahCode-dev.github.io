@@ -51,12 +51,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function savePlayerState() {
+    const state = {
+      currentTrack,
+      isPlaying,
+      volume: audioPlayer.volume,
+      currentTime: audioPlayer.currentTime
+    };
+    localStorage.setItem('musicPlayerState', JSON.stringify(state));
+  }
+
+  function loadPlayerState() {
+    const stateJSON = localStorage.getItem('musicPlayerState');
+    if (stateJSON) {
+      try {
+        const state = JSON.parse(stateJSON);
+        if (state.currentTrack !== undefined && state.currentTrack >= 0 && state.currentTrack < playlist.length) {
+          currentTrack = state.currentTrack;
+        }
+        if (typeof state.isPlaying === 'boolean') {
+          isPlaying = state.isPlaying;
+        }
+        if (typeof state.volume === 'number' && state.volume >= 0 && state.volume <= 1) {
+          audioPlayer.volume = state.volume;
+          volumeSlider.value = state.volume;
+        }
+      } catch (e) {
+        console.error('Failed to parse music player state from localStorage', e);
+      }
+    }
+  }
+
   function loadTrack(index) {
     audioPlayer.src = playlist[index];
     songTitle.textContent = getFileName(playlist[index]);
-    if (isPlaying) {
-      audioPlayer.play();
-    }
+
+    audioPlayer.addEventListener('loadedmetadata', function onLoadedMetadata() {
+      audioPlayer.removeEventListener('loadedmetadata', onLoadedMetadata);
+      const stateJSON = localStorage.getItem('musicPlayerState');
+      if (stateJSON) {
+        try {
+          const state = JSON.parse(stateJSON);
+          if (typeof state.currentTime === 'number' && state.currentTime >= 0 && state.currentTime < audioPlayer.duration) {
+            audioPlayer.currentTime = state.currentTime;
+          }
+        } catch (e) {
+          console.error('Failed to parse music player state from localStorage', e);
+        }
+      }
+      if (isPlaying) {
+        const playPromise = audioPlayer.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            isPlaying = false;
+            playPauseBtn.textContent = 'Play';
+          });
+        }
+      }
+    });
   }
 
   function playPause() {
@@ -65,10 +117,24 @@ document.addEventListener('DOMContentLoaded', () => {
       isPlaying = false;
       playPauseBtn.textContent = 'Play';
     } else {
-      audioPlayer.play();
-      isPlaying = true;
-      playPauseBtn.textContent = 'Pause';
+      const playPromise = audioPlayer.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isPlaying = true;
+          playPauseBtn.textContent = 'Pause';
+          savePlayerState();
+        }).catch(error => {
+          isPlaying = false;
+          playPauseBtn.textContent = 'Play';
+        });
+      } else {
+        isPlaying = true;
+        playPauseBtn.textContent = 'Pause';
+        savePlayerState();
+      }
+      return;
     }
+    savePlayerState();
   }
 
   function nextTrack() {
@@ -77,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentTrack = 0;
     }
     loadTrack(currentTrack);
+    savePlayerState();
   }
 
   function prevTrack() {
@@ -85,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentTrack = playlist.length - 1;
     }
     loadTrack(currentTrack);
+    savePlayerState();
   }
 
   audioPlayer.addEventListener('ended', () => {
@@ -95,7 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  audioPlayer.addEventListener('timeupdate', updateTimeRemaining);
+  audioPlayer.addEventListener('timeupdate', () => {
+    updateTimeRemaining();
+    savePlayerState();
+  });
 
   playPauseBtn.addEventListener('click', playPause);
   nextBtn.addEventListener('click', nextTrack);
@@ -112,7 +183,15 @@ document.addEventListener('DOMContentLoaded', () => {
   volumeSlider.value = audioPlayer.volume;
   volumeSlider.addEventListener('input', () => {
     audioPlayer.volume = volumeSlider.value;
+    savePlayerState();
   });
 
+  loadPlayerState();
   loadTrack(currentTrack);
+  if (isPlaying) {
+    audioPlayer.play();
+    playPauseBtn.textContent = 'Pause';
+  } else {
+    playPauseBtn.textContent = 'Play';
+  }
 });
