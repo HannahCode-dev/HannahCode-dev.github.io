@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const loopBtn = document.getElementById('loopBtn');
+  const volumeSlider = document.getElementById('volumeSlider');
   const songTitle = document.getElementById('songTitle');
   const timeRemaining = document.getElementById('timeRemaining');
   const playlist = [
@@ -101,7 +102,16 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', prevTrack);
   loopBtn.addEventListener('click', () => {
     loop = !loop;
-    loopBtn.textContent = loop ? 'Loop On' : 'Loop Off';
+    if (loop) {
+      loopBtn.classList.add('loop-active');
+    } else {
+      loopBtn.classList.remove('loop-active');
+    }
+  });
+
+  volumeSlider.value = audioPlayer.volume;
+  volumeSlider.addEventListener('input', () => {
+    audioPlayer.volume = volumeSlider.value;
   });
 
   loadTrack(currentTrack);

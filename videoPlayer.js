@@ -1,6 +1,3 @@
-// Replace the custom video player with YouTube iframe player
-
-// Remove all existing video elements and replace with YouTube iframe
 document.addEventListener('DOMContentLoaded', () => {
   const videos = document.querySelectorAll('video');
   videos.forEach(video => {
@@ -18,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Helper function to extract YouTube video ID from URL
 function extractYouTubeVideoId(url) {
   if (!url) return null;
   const regExp = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;

@@ -9,16 +9,13 @@
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
-   /* Custom font for the page */
     body {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
         "Liberation Mono", "Courier New", monospace;
     }
-    /* Scale everything based on viewport width */
     html {
       font-size: calc(10.4px + 0.65vw);
     }
-    /* Limit min and max font size */
     @media (min-width: 1280px) {
       html {
         font-size: 18px;
@@ -29,20 +26,23 @@
         font-size: 10.4px;
       }
     }
+    .loop-active {
+      background-color: #3b82f6 !important;
+    }
   </style>
  </head>
  <body class="bg-[#1e262d] text-[#cbd5e1] min-h-screen">
   <header class="flex justify-end p-[0.5rem] space-x-[0.25rem] tracking-widest" style="font-weight: 300;">
-   <a class="hover:underline" href="index.html" style="font-size: 0.7rem;">
+   <a href="index.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
     Home
    </a>
-   <a class="hover:underline" href="#" style="font-size: 0.7rem;">
+   <a href="#" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
     Tutorials
    </a>
-   <a class="hover:underline" href="#" style="font-size: 0.7rem;">
+   <a href="#" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
     Discord
    </a>
-   <a class="hover:underline" href="videos.html" style="font-size: 0.7rem;">
+   <a href="videos.html" class="px-3 py-1 bg-gray-700 rounded-md text-[#cbd5e1] text-xs transition-colors duration-300 hover:bg-[#ff4d4d] hover:text-white">
     Videos
    </a>
   </header>
@@ -129,7 +129,8 @@
       <button id="prevBtn" class="px-2 py-1 bg-[#ff4d4d] rounded text-white text-xs">Prev</button>
       <button id="playPauseBtn" class="px-2 py-1 bg-[#ff4d4d] rounded text-white text-xs">Play</button>
       <button id="nextBtn" class="px-2 py-1 bg-[#ff4d4d] rounded text-white text-xs">Next</button>
-      <button id="loopBtn" class="px-2 py-1 bg-[#ff4d4d] rounded text-white text-xs">Loop Off</button>
+      <button id="loopBtn" class="px-2 py-1 bg-[#ff4d4d] rounded text-white text-xs">Loop</button>
+      <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="1" class="max-w-[6rem] w-full" title="Volume"/>
      </div>
     </section>
     <script src="musicPlayer.js"></script>
@@ -140,24 +141,24 @@
     </h3>
     <div class="grid grid-cols-2 gap-[0.5rem] max-w-4xl">
      <div class="bg-[#2a323a] rounded-md h-[5rem] sm:h-[5.5rem] flex flex-col justify-center items-center p-2 space-y-1 hover:bg-[#ff4d4d] transition-colors duration-300 cursor-pointer">
-      <h4 class="text-[#ff4d4d] font-semibold text-sm truncate">
+      <h4 class="text-[#ff4d4d] font-semibold text-sm text-center">
        HannahCode-dev.github.io
       </h4>
-      <p class="text-[#cbd5e1] text-xs truncate">
+      <p class="text-[#cbd5e1] text-xs text-center">
        Personal website and projects showcase
       </p>
-      <a href="https://github.com/HannahCode-dev/HannahCode-dev.github.io" target="_blank" rel="noopener noreferrer" class="text-[#ff4d4d] text-xs hover:underline truncate">
+      <a href="https://github.com/HannahCode-dev/HannahCode-dev.github.io" target="_blank" rel="noopener noreferrer" class="text-[#ff4d4d] text-xs hover:underline text-center block">
        GitHub Repo
       </a>
      </div>
      <div class="bg-[#2a323a] rounded-md h-[5rem] sm:h-[5.5rem] flex flex-col justify-center items-center p-2 space-y-1 hover:bg-[#ff4d4d] transition-colors duration-300 cursor-pointer">
-      <h4 class="text-[#ff4d4d] font-semibold text-sm truncate">
+      <h4 class="text-[#ff4d4d] font-semibold text-sm text-center">
        HannahBot
       </h4>
-      <p class="text-[#cbd5e1] text-xs truncate">
+      <p class="text-[#cbd5e1] text-xs text-center">
        Modular discord bot
       </p>
-      <a href="https://github.com/HannahCode-dev/HannahBot" target="_blank" rel="noopener noreferrer" class="text-[#ff4d4d] text-xs hover:underline truncate">
+      <a href="https://github.com/HannahCode-dev/HannahBot" target="_blank" rel="noopener noreferrer" class="text-[#ff4d4d] text-xs hover:underline text-center block">
        GitHub Repo
       </a>
      </div>
